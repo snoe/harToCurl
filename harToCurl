@@ -13,9 +13,9 @@ opts['http0'] = '-0' if data['request']['httpVersion'] == 'HTTP/1.0' else ''
 opts['method'] = data['request']['method']
 opts['headers'] = ' '.join(['-H "' + x['name'] + ': ' + x['value'] + '"' for x in data['request']['headers']])
 if 'postData' in data['request']:
-	opts['postData'] = data['request']['postData']['text']
+    opts['postData'] = data['request']['postData']['text']
 else:
-	opts['postData'] = ''
+    opts['postData'] = ''
 
 print 'curl -X {method} {http0} -b "{cookies}" {headers} -d "{postData}" {url}'.format(**opts)
 
